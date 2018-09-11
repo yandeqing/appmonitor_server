@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="im.zuber.server.dao.DeviceinfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="im.zuber.server.entity.Deviceinfo">
+        <id column="id" property="id" />
+        <result column="deviceId" property="deviceId" />
+        <result column="deviceMacAddr" property="deviceMacAddr" />
+        <result column="deviceLocale" property="deviceLocale" />
+        <result column="devicePlatform" property="devicePlatform" />
+        <result column="deviceOsVersion" property="deviceOsVersion" />
+        <result column="deviceScreen" property="deviceScreen" />
+        <result column="deviceDensity" property="deviceDensity" />
+        <result column="deviceModel" property="deviceModel" />
+        <result column="createTime" property="createTime" />
+        <result column="uid" property="uid" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        deviceId, deviceMacAddr, deviceLocale, devicePlatform, deviceOsVersion, deviceScreen, deviceDensity, deviceModel, id, createTime, uid
+    </sql>
+    <insert id="saveDeviceInfos" parameterType="java.util.List" keyProperty="id"
+        useGeneratedKeys="true">
+        insert into
+        Deviceinfo(deviceId, deviceMacAddr, deviceLocale, devicePlatform, deviceOsVersion,
+        deviceScreen, deviceDensity, deviceModel, createTime, uid)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.deviceId},#{item.deviceMacAddr},#{item.deviceLocale},#{item.devicePlatform}
+            ,#{item.deviceOsVersion},#{item.deviceScreen},#{item.deviceDensity},#{item.deviceModel},#{item.createTime},#{item.uid})
+        </foreach>
+
+    </insert>
+</mapper>

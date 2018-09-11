@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="im.zuber.server.dao.AppeventMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="im.zuber.server.entity.Appevent">
+        <id column="id" property="id" />
+        <result column="appDeviceId" property="appDeviceId" />
+        <result column="eventId" property="eventId" />
+        <result column="createTime" property="createTime" />
+        <result column="uid" property="uid" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        appDeviceId, eventId, id, createTime, uid
+    </sql>
+
+</mapper>
